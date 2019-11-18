@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeveloperCollections.Model;
+using DeveloperUI.Properties
+
+
 
 namespace DeveloperCollections
 {
     public partial class DeveloperHub : Form
     {
+        List<Developers> Developers = new dev;
+
+       
         public DeveloperHub()
         {
             InitializeComponent();
@@ -31,5 +38,20 @@ namespace DeveloperCollections
         {
 
         }
+
+        private void LoadDevelopersBtn_Click(object sender, EventArgs e)
+        {
+          
+            if(e !=null)
+            {
+                foreach (Developers dev in developers)
+                {
+                    Console.Write(dev.ToString() + " ");
+                }
+
+            }
+        }
+
+        
     }
 }

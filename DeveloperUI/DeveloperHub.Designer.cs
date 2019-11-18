@@ -100,6 +100,7 @@
             this.LoadDevelopersBtn.TabIndex = 9;
             this.LoadDevelopersBtn.Text = "Load Developers";
             this.LoadDevelopersBtn.UseVisualStyleBackColor = true;
+            this.LoadDevelopersBtn.Click += new System.EventHandler(this.LoadDevelopersBtn_Click);
             // 
             // button1
             // 
@@ -110,7 +111,7 @@
             this.button1.Text = "Remove";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // DeveloperHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +124,7 @@
             this.Controls.Add(this.DisplayAllbtn);
             this.Controls.Add(this.DisplayWomenBtn);
             this.Controls.Add(this.DisplayMenBtn);
-            this.Name = "Form1";
+            this.Name = "DeveloperHub";
             this.Text = "Developer Hub";
             this.ResumeLayout(false);
 

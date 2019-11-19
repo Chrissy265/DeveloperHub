@@ -46,6 +46,7 @@
             this.DisplayMenBtn.TabIndex = 2;
             this.DisplayMenBtn.Text = "Display Men";
             this.DisplayMenBtn.UseVisualStyleBackColor = true;
+            this.DisplayMenBtn.Click += new System.EventHandler(this.DisplayMenBtn_Click);
             // 
             // DisplayWomenBtn
             // 
@@ -55,6 +56,7 @@
             this.DisplayWomenBtn.TabIndex = 3;
             this.DisplayWomenBtn.Text = "Display Women";
             this.DisplayWomenBtn.UseVisualStyleBackColor = true;
+            this.DisplayWomenBtn.Click += new System.EventHandler(this.DisplayWomenBtn_Click);
             // 
             // DisplayAllbtn
             // 
@@ -64,6 +66,7 @@
             this.DisplayAllbtn.TabIndex = 4;
             this.DisplayAllbtn.Text = "Display All";
             this.DisplayAllbtn.UseVisualStyleBackColor = true;
+            this.DisplayAllbtn.Click += new System.EventHandler(this.DisplayAllbtn_Click);
             // 
             // RemoveAllbtn
             // 
@@ -73,6 +76,7 @@
             this.RemoveAllbtn.TabIndex = 5;
             this.RemoveAllbtn.Text = "Remove All";
             this.RemoveAllbtn.UseVisualStyleBackColor = true;
+            this.RemoveAllbtn.Click += new System.EventHandler(this.RemoveAllbtn_Click);
             // 
             // AddDeveloperbtn
             // 
@@ -100,6 +104,7 @@
             this.LoadDevelopersBtn.TabIndex = 9;
             this.LoadDevelopersBtn.Text = "Load Developers";
             this.LoadDevelopersBtn.UseVisualStyleBackColor = true;
+            this.LoadDevelopersBtn.Click += new System.EventHandler(this.LoadDevelopersBtn_Click);
             // 
             // button1
             // 
@@ -109,8 +114,9 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Remove";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // DeveloperHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +129,7 @@
             this.Controls.Add(this.DisplayAllbtn);
             this.Controls.Add(this.DisplayWomenBtn);
             this.Controls.Add(this.DisplayMenBtn);
-            this.Name = "Form1";
+            this.Name = "DeveloperHub";
             this.Text = "Developer Hub";
             this.ResumeLayout(false);
 

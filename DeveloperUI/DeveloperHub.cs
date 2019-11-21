@@ -11,6 +11,7 @@ using DeveloperUI.Properties;
 using DeveloperCollections;
 using DeveloperUI;
 
+
 namespace DeveloperCollections
 {
 
@@ -70,11 +71,12 @@ namespace DeveloperCollections
 
         private void AddDeveloperbtn_Click(object sender, EventArgs e)  //open the child form, add developer
         {
+            //Call add developer form
+
+            AddDeveloper frm = new AddDeveloper();
+            frm.Show();
             
-            
-                frmAddDeveloper.Show(this);  //show the developer form 
-                
-            
+           
             
             
 
@@ -92,17 +94,21 @@ namespace DeveloperCollections
         {
 
             //Need to compare the gender in the dev object 
-
-             
-
-
-            //Display the list in the listbox
-
-            for (int i = 0; i < developers.Count; i++)
+            foreach(Developer developer in developers)
             {
-                DeveloperListBox.Items.Add(developers.ElementAt(i));
+                if(developer.Gender != "F") //Display the list in the listbox
+                {
+                    for (int i = 0; i < developers.Count; i++)
+                    {
+                        DeveloperListBox.Items.Add(developers.ElementAt(i));
 
+                    }
+                }
             }
+
+            
+
+          
 
         }
 
@@ -110,16 +116,20 @@ namespace DeveloperCollections
         {
 
             //Need to compare the gender in the dev object 
-
-
-
-            //Display the list in the listbox
-
-            for (int i = 0; i < developers.Count; i++)
+            foreach (Developer developer in developers)
             {
-                DeveloperListBox.Items.Add(developers.ElementAt(i));
+                if (developer.Gender != "M") //Display the list in the listbox
+                {
+                    for (int i = 0; i < developers.Count; i++)  //Display the list in the listbox
+                    {
+                        DeveloperListBox.Items.Add(developers.ElementAt(i));
 
+                    }
+                }
             }
+
+
+          
         }
 
         private void DisplayAllbtn_Click(object sender, EventArgs e)
@@ -155,6 +165,32 @@ namespace DeveloperCollections
 
         private void DeveloperListBox_SelectedIndexChanged(object sender, EventArgs e)  //display the current list of developers 
         {
+            this.DeveloperListBox = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
+            // 
+            // DeveloperListBox
+            // 
+            this.DeveloperListBox.ColumnWidth = 85;
+            this.DeveloperListBox.FormattingEnabled = true;
+            this.DeveloperListBox.HorizontalScrollbar = true;
+            this.DeveloperListBox.Items.AddRange(new object[] {
+            "Item 1, First Name",
+            "Item 2, Last Name",
+            "Item 3, Gender",
+            "Item 4, Phone Extension"});
+            this.DeveloperListBox.Location = new System.Drawing.Point(0, 0);
+            this.DeveloperListBox.MultiColumn = true;
+            this.DeveloperListBox.Name = "DeveloperListBox";
+            this.DeveloperListBox.ScrollAlwaysVisible = true;
+            this.DeveloperListBox.Size = new System.Drawing.Size(120, 95);
+            this.DeveloperListBox.TabIndex = 0;
+            // 
+            // DeveloperHub
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.DeveloperListBox);
+            this.Name = "DeveloperHub";
+            this.ResumeLayout(false);
 
             DeveloperListBox.BeginUpdate();
             foreach( Developer developer in developers)
@@ -167,22 +203,40 @@ namespace DeveloperCollections
         }
     }
 
-
-
-    class Developer
+   class Developer
     {
 
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int phoneExtension { get; set; }
-        public string gender { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int PhoneExtension { get; set; }
+        public string Gender { get; set; }
 
-        public string fullName { get; set; }
-        private List<Developer> Dev { get; set; }
-
-
+        public string FullName { get; set; }
+        public List<Developer> developers { get; set; }
 
 
+        
 
+
+        Developer developers1 = new Developer { FirstName = " Jay", LastName = "Frink", PhoneExtension = 6879, Gender = "M", FullName = "Jay Frink" };
+        Developer developers2 = new Developer { FirstName = "Laura", LastName = "Talaat-Hamid", PhoneExtension = 8891, Gender = "F", FullName = "Laura Talaat-Hamid" };
+        Developer developers3 = new Developer { FirstName = "Walter", LastName = "Snyder", PhoneExtension = 43389, Gender = "M", FullName = "Walter Snydedr" };
+        Developer developers4 = new Developer { FirstName = "Christina", LastName = "Beckford", PhoneExtension = 9868, Gender = "F", FullName = "Christina Beckford" };
+        Developer developers5 = new Developer { FirstName = "Peter", LastName = "Jackson", PhoneExtension = 2365, Gender = "M", FullName = "Peter Jackson" };
+        Developer developers6 = new Developer { FirstName = "Bridget", LastName = "Pizzo", PhoneExtension = 5687, Gender = "F", FullName = "Bridget Pizzo" };
+   
+
+        public Developer(string firstName, string lastName, int phoneExtension, string gender)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Gender = gender;
+
+            int PhoneExtension = 0;
+            //int.TryParse(phoneExtension, out PhoneExtValue);
+            PhoneExtension = phoneExtension;
+             
+            
+        }
     }
 }

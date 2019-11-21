@@ -26,36 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.DeveloperListBox = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
-            // DeveloperListBox
-            // 
-            this.DeveloperListBox.ColumnWidth = 85;
-            this.DeveloperListBox.FormattingEnabled = true;
-            this.DeveloperListBox.HorizontalScrollbar = true;
-            this.DeveloperListBox.Items.AddRange(new object[] {
-            "Item 1, First Name",
-            "Item 2, Last Name",
-            "Item 3, Gender",
-            "Item 4, Phone Extension"});
-            this.DeveloperListBox.Location = new System.Drawing.Point(0, 0);
-            this.DeveloperListBox.MultiColumn = true;
-            this.DeveloperListBox.Name = "DeveloperListBox";
-            this.DeveloperListBox.ScrollAlwaysVisible = true;
-            this.DeveloperListBox.Size = new System.Drawing.Size(120, 95);
-            this.DeveloperListBox.TabIndex = 0;
-            // 
-            // DeveloperHub
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.DeveloperListBox);
-            this.Name = "DeveloperHub";
-            this.ResumeLayout(false);
-
-        }
+       
 
         #endregion
 

@@ -58,6 +58,7 @@
     <Compile Include="DeveloperHub.Designer.cs">
       <DependentUpon>DeveloperHub.cs</DependentUpon>
     </Compile>
+    <Compile Include="IAddDeveloperRequester.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddDeveloper.resx">

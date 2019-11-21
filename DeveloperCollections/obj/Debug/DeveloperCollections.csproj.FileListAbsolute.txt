@@ -1,0 +1,4 @@
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperCollections\obj\Debug\DeveloperCollections.csprojAssemblyReference.cache
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperCollections\obj\Debug\DeveloperCollections.Properties.Resources.resources
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperCollections\obj\Debug\DeveloperCollections.csproj.GenerateResource.cache
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperCollections\obj\Debug\DeveloperCollections.csproj.CoreCompileInputs.cache

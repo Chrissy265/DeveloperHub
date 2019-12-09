@@ -1,4 +1,6 @@
-﻿namespace DeveloperUI
+﻿using System;
+
+namespace DeveloperUI
 {
     partial class AddDeveloper
     {
@@ -127,9 +129,9 @@
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(142, 28);
             this.Add.TabIndex = 10;
-            this.Add.Text = "Add Developer";
+            this.Add.Text = "Save";
             this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.addDev);
+            this.Add.Click += new System.EventHandler(this.Save);
             // 
             // button2
             // 
@@ -161,6 +163,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Save(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

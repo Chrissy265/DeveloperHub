@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -7,236 +8,237 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DeveloperUI.Properties;
-using DeveloperCollections;
-using DeveloperUI;
 
-
-namespace DeveloperCollections
+namespace DeveloperUI
 {
-
-
     public partial class DeveloperHub : Form
     {
         List<Developer> developers = new List<Developer>();
+        //ObservableCollection<Developer> Dev { get; } = new ObservableCollection<Developer>();
+        
 
-      
+
         public DeveloperHub()
         {
-            
-        }
-
-        private void InitializeComponent()
-        {
-            ListBox DeveloperListBox = new ListBox();
-
-            //DeveloperListBox.Size = new System.Drawing.Size(200, 100);
-            //DeveloperListBox.Location = new System.Drawing.Point(10, 10);
-            this.Controls.Add(DeveloperListBox); 
-        
-            this.DeveloperListBox = new System.Windows.Forms.ListBox();
-            
-            //this.SuspendLayout();
-
-            this.DeveloperListBox.FormattingEnabled = true;
-            this.DeveloperListBox.HorizontalScrollbar = true;
-            this.DeveloperListBox.Items.AddRange(new object[]
+            InitializeComponent();
             {
-                "Item 1, First Name",
-                "Item 2, Last Name",
-                "Item 3, Gender",
-                "Item 4, Phone Extension"
-            });
-
-           
-            this.DeveloperListBox.MultiColumn = true;
-            this.DeveloperListBox.ScrollAlwaysVisible = true;
-            this.DeveloperListBox.Size = new System.Drawing.Size(300, 95);
-            this.DeveloperListBox.TabIndex = 0;
-            this.DeveloperListBox.ColumnWidth = 85; 
-        }
-        
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void DevView(object sender, EventArgs e)
         {
+            ListView DevView = new ListView();
 
-        }
-        Form frmAddDeveloper = new Form();
-
-        private void AddDeveloperbtn_Click(object sender, EventArgs e)  //open the child form, add developer
-        {
-            //Call add developer form
-
-            AddDeveloper frm = new AddDeveloper();
-            frm.Show();
-            
-           
-            
-            
+            DevView.View = View.Details;
+            DevView.LabelEdit = true;
+            DevView.GridLines = true;
+            DevView.CheckBoxes = true;
+            DevView.FullRowSelect = true;
+            DevView.MultiSelect = true;
 
 
-        }
+            DevView.Columns.Add("Full Name", 300, HorizontalAlignment.Left);
 
-        private void LoadDevelopersBtn_Click(object sender, EventArgs e)
-        {
-            DeveloperListBox.DisplayMember.ToString();
-            
-           
-        }
+            DevView.Columns.Add("Gender", 70, HorizontalAlignment.Left);
 
-        private void DisplayMenBtn_Click(object sender, EventArgs e)
-        {
+            DevView.Columns.Add("Phone Extension", 70, HorizontalAlignment.Left);
 
-            //Need to compare the gender in the dev object 
-            foreach(Developer developer in developers)
+            for (int i = 0; i < developers.Count; i++)
             {
-                if(developer.Gender != "F") //Display the list in the listbox
+                if (developers != null)
                 {
-                    for (int i = 0; i < developers.Count; i++)
-                    {
-                        DeveloperListBox.Items.Add(developers.ElementAt(i));
+                    ListViewItem viewItem = new ListViewItem(developers.ToString());
 
-                    }
+
                 }
             }
 
-            
+        }
 
-          
+        private void LoadDevList()
+        {
+            List<Developer> developers = new List<Developer>();
+
+            devView.Items.Clear();
+
+            for (int i = 0; i < developers.Count; i++)
+            {
+                if(developers !=null)
+                {
+                    ListViewItem viewItem = new ListViewItem(developers.ToString());
+
+                   
+                }
+            }
+        }
+        
+        private void DeveloperlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+         
 
         }
 
-        private void DisplayWomenBtn_Click(object sender, EventArgs e)
+        Form addDevfrm = new Form();
+        private void AddDev_Click(object sender, EventArgs e)
         {
 
+            //Call add developer for   
+
+            addDevfrm.Show();
+
+        }
+
+        private void LoadDev_Click(object sender, EventArgs e)
+        {
+            //DeveloperListBox.DisplayMember.ToString();
+           //DeveloperlistBox_SelectedIndexChanged.DataSource = developers;
+
+            List<Developer> developers = new List<Developer>();
+
+            devView.Items.Clear();
+
+            for (int i = 0; i < developers.Count; i++)
+            {
+                if (developers != null)
+                {
+                    ListViewItem viewItem = new ListViewItem(developers.ToString());
+
+                    devView.Items.Add(viewItem);
+                }
+            }
+
+
+        }
+
+        private void DisplayMen_Click(object sender, EventArgs e)
+        {
+            List<Developer> menDevs = new List<Developer>(); 
+            //Need to compare the gender in the dev object 
+            foreach (Developer developer in developers)
+            {
+             
+                if (developer.Gender != "F") //Display the list in the listbox
+                {
+                    
+
+                    devView.Items.Add(developer.ToString());
+                   
+                }
+                
+
+
+            }
+           
+        }
+
+        private void DisplayWomen_Click(object sender, EventArgs e)
+        {
             //Need to compare the gender in the dev object 
             foreach (Developer developer in developers)
             {
                 if (developer.Gender != "M") //Display the list in the listbox
                 {
-                    for (int i = 0; i < developers.Count; i++)  //Display the list in the listbox
-                    {
-                        DeveloperListBox.Items.Add(developers.ElementAt(i));
 
-                    }
+
+                    devView.Items.Add(developer.ToString());
+                    
                 }
+
+               
             }
 
-
-          
         }
 
-        private void DisplayAllbtn_Click(object sender, EventArgs e)
+        private void DisplayAll_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < developers.Count; i++)
             {
-                DeveloperListBox.Items.Add(developers.ElementAt(i));
+                devView.Items.Add(developers.ToString());
 
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)  //remove btn need to rename the property on the UI      //Remove the  selected developer object from the list
+        private void RemoveSelected_Click(object sender, EventArgs e)
+        //{
+        //    if (DeveloperlistBox.TopIndex != DeveloperlistBox.SelectedIndex)
+        //        DeveloperlistBox.TopIndex = DeveloperlistBox.SelectedIndex;
+
         {
-            if (DeveloperListBox.TopIndex != DeveloperListBox.SelectedIndex)
-                DeveloperListBox.TopIndex = DeveloperListBox.SelectedIndex;
-
-            for (int x = (DeveloperListBox.SelectedIndex -1); x >=0; x++)
+           for(int i =devView.Items.Count-1; i>=0; i--)
             {
-                DeveloperListBox.Items.RemoveAt(x); 
+                if(devView.Items[i].Selected)
+                {
+                    devView.Items[i].Remove(); 
+                }
             }
         }
 
-        private void RemoveAllbtn_Click(object sender, EventArgs e) //remove all the developers from the list, select the developer first
+        private void RemoveAll_Click(object sender, EventArgs e)
         {
-
-            for (int x = (DeveloperListBox.SelectedIndex = -1); x >=0; x++) 
+            for (int i = devView.Items.Count - 1; i >= 0; i--)
             {
-                DeveloperListBox.Items.Clear();
-
+                if(devView.Items[i].Selected)
+                {
+                    devView.Items[i].Remove(); 
+                }
             }
-
         }
 
-        private void DeveloperListBox_SelectedIndexChanged(object sender, EventArgs e)  //display the current list of developers 
+        private void DeveloperHub_Load(object sender, EventArgs e)
         {
-            this.DeveloperListBox = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
-            // DeveloperListBox
-            // 
-            this.DeveloperListBox.ColumnWidth = 85;
-            this.DeveloperListBox.FormattingEnabled = true;
-            this.DeveloperListBox.HorizontalScrollbar = true;
-            this.DeveloperListBox.Items.AddRange(new object[] {
-            "Item 1, First Name",
-            "Item 2, Last Name",
-            "Item 3, Gender",
-            "Item 4, Phone Extension"});
-            this.DeveloperListBox.Location = new System.Drawing.Point(0, 0);
-            this.DeveloperListBox.MultiColumn = true;
-            this.DeveloperListBox.Name = "DeveloperListBox";
-            this.DeveloperListBox.ScrollAlwaysVisible = true;
-            this.DeveloperListBox.Size = new System.Drawing.Size(120, 95);
-            this.DeveloperListBox.TabIndex = 0;
-            // 
-            // DeveloperHub
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.DeveloperListBox);
-            this.Name = "DeveloperHub";
-            this.ResumeLayout(false);
+            Developer developers1 = new Developer { FirstName = " Jay", LastName = "Frink", PhoneExtension = "6879", Gender = "M", FullName = "Jay Frink" };
+            Developer developers2 = new Developer { FirstName = "Laura", LastName = "Talaat-Hamid", PhoneExtension = "8891", Gender = "F", FullName = "Laura Talaat-Hamid" };
+            Developer developers3 = new Developer { FirstName = "Walter", LastName = "Snyder", PhoneExtension = "43389", Gender = "M", FullName = "Walter Snydedr" };
+            Developer developers4 = new Developer { FirstName = "Christina", LastName = "Beckford", PhoneExtension = "9868", Gender = "F", FullName = "Christina Beckford" };
+            Developer developers5 = new Developer { FirstName = "Peter", LastName = "Jackson", PhoneExtension = "2365", Gender = "M", FullName = "Peter Jackson" };
+            Developer developers6 = new Developer { FirstName = "Bridget", LastName = "Pizzo", PhoneExtension = "5687", Gender = "F", FullName = "Bridget Pizzo" };
 
-            DeveloperListBox.BeginUpdate();
-            foreach( Developer developer in developers)
-            {
-                Console.WriteLine(); 
-                   
-            }
+            developers.Add(developers1);
+            developers.Add(developers2);
+            developers.Add(developers3);
+            developers.Add(developers4);
+            developers.Add(developers5);
+            developers.Add(developers6); 
 
-            DeveloperListBox.EndUpdate(); 
+            //Dev.Add(new Developer { FirstName = " Jay", LastName = "Frink", PhoneExtension = "6879", Gender = "M", FullName = "Jay Frink" });
+            //Dev.Add(new Developer { FirstName = "Laura", LastName = "Talaat-Hamid", PhoneExtension = "8891", Gender = "F", FullName = "Laura Talaat-Hamid" });
+            //Dev.Add(new Developer { FirstName = "Christina", LastName = "Beckford", PhoneExtension = "9868", Gender = "F", FullName = "Christina Beckford" });
+            //Dev.Add(new Developer { FirstName = "Peter", LastName = "Jackson", PhoneExtension = "2365", Gender = "M", FullName = "Peter Jackson" });
+            //Dev.Add(new Developer { FirstName = "Bridget", LastName = "Pizzo", PhoneExtension = "5687", Gender = "F", FullName = "Bridget Pizzo" });
+
+           
+
+
         }
+
+    
     }
 
-   class Developer
+    class Developer
     {
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int PhoneExtension { get; set; }
+        public string PhoneExtension { get; set; }
         public string Gender { get; set; }
 
         public string FullName { get; set; }
         public List<Developer> developers { get; set; }
-
+        //ObservableCollection<Developer> Dev { get { return Dev; } }
 
         
+        //public Developer(string firstName, string lastName, string phoneExtension, string gender)
+        //{
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    Gender = gender;
+        //    PhoneExtension = phoneExtension;
 
 
-        Developer developers1 = new Developer { FirstName = " Jay", LastName = "Frink", PhoneExtension = 6879, Gender = "M", FullName = "Jay Frink" };
-        Developer developers2 = new Developer { FirstName = "Laura", LastName = "Talaat-Hamid", PhoneExtension = 8891, Gender = "F", FullName = "Laura Talaat-Hamid" };
-        Developer developers3 = new Developer { FirstName = "Walter", LastName = "Snyder", PhoneExtension = 43389, Gender = "M", FullName = "Walter Snydedr" };
-        Developer developers4 = new Developer { FirstName = "Christina", LastName = "Beckford", PhoneExtension = 9868, Gender = "F", FullName = "Christina Beckford" };
-        Developer developers5 = new Developer { FirstName = "Peter", LastName = "Jackson", PhoneExtension = 2365, Gender = "M", FullName = "Peter Jackson" };
-        Developer developers6 = new Developer { FirstName = "Bridget", LastName = "Pizzo", PhoneExtension = 5687, Gender = "F", FullName = "Bridget Pizzo" };
-   
+        //    //int.TryParse(phoneExtension, out PhoneExtValue
 
-        public Developer(string firstName, string lastName, int phoneExtension, string gender)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Gender = gender;
-
-            int PhoneExtension = 0;
-            //int.TryParse(phoneExtension, out PhoneExtValue);
-            PhoneExtension = phoneExtension;
-             
-            
-        }
+        //}
     }
+    
 }

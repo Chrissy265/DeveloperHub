@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DeveloperCollections;
-
-namespace DeveloperUI
+﻿namespace DeveloperUI
 {
-    public interface IAddDeveloperRequester
+    public interface ISaveRequester
     {
-        void DeveloperComplete(Developer developer);
+        AddDeveloper AddDev();
     }
 }

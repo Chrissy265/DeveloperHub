@@ -1,0 +1,11 @@
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\bin\Debug\DeveloperUI.exe.config
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\bin\Debug\DeveloperUI.exe
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\bin\Debug\DeveloperUI.pdb
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.csprojAssemblyReference.cache
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.AddDeveloper.resources
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.DeveloperHub.resources
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.Properties.Resources.resources
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.csproj.GenerateResource.cache
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.csproj.CoreCompileInputs.cache
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.exe
+C:\Users\christina.beckford\source\repos\DeveloperCollections\DeveloperUI\obj\Debug\DeveloperUI.pdb

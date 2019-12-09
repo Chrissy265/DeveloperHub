@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DeveloperCollections;
-using DeveloperCollections.DataAccess;
+
+
 
 
 namespace DeveloperUI
 {
     public partial class AddDeveloper : Form
     {
-        IAddDeveloperRequester callingForm; 
+        ISaveRequester callingForm; 
 
-        public AddDeveloper(IAddDeveloperRequester caller)
+        public AddDeveloper(ISaveRequester caller)
         {
             InitializeComponent();
             callingForm = caller;
@@ -33,13 +33,23 @@ namespace DeveloperUI
 
         }
 
-        private void addDev(object sender, EventArgs e)
-        {
-           
-            GlobalConfig.Connection.AddDeveloper(developer);
-            callingForm.DeveloperComplete(developer);
-            this.Close(); //close the addDeveloper form 
+        //private void AddDev(object sender, EventArgs e)
+        //{
+        //   if(ValidateForm())
+        //    {
+                
+
+        //        //GlobalConfig.Connection.AddDevelopers();
+        //        //callingForm.DeveloperComplete(developer);
+        //        //this.Close(); //close the addDeveloper form 
+        //    }
+          
                  
+        //}
+
+        private bool ValidateForm()  //put in logic to valid the input on the form
+        {
+            throw new NotImplementedException();
         }
     }
 }
